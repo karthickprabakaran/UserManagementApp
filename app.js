@@ -5,11 +5,17 @@ const app = express();
 app.set('view engine', 'ejs');
 
 const port = 3000;
+const bodyParser = require('body-parser');
+const loginRoutes = require('./src/routes/login');
+const homeRoutes = require('./src/routes/home');
 
 
-app.get('/', (req, res) => {
-  res.sendFile('/Users/karthickprabakaran/Projects/UserManagementApp/views/index.html');
-});
+
+app.use('/auth',loginRoutes);
+
+
+app.use('/',homeRoutes);
+
 
 
 app.listen(port, () => {
