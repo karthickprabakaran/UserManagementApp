@@ -1,17 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>First App</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Landing Page</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .hero-bg {
+      background-image: url('https://images.pexels.com/photos/2041629/pexels-photo-2041629.jpeg?auto=compress&cs=tinysrgb&w=800');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  </style>
 </head>
-<body>
+<body class="bg-gray-100 text-gray-800">
 
-    <div>
-        <div>
-            <h2>Welcome to my User Management App</h2>
-        </div>
-    </div>
+    <!-- Navbar -->
+    <nav class="bg-gray-500 bg-opacity-20 shadow-lg fixed w-full top-0 left-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+          <a href="#" class="text-2xl font-semibold text-blue-600 hover:text-blue-800 transition-colors duration-300">
+            MyBrand
+          </a>
     
+          <div class="hidden md:flex space-x-8">
+            <a href="#home" class="text-white hover:text-blue-600 font-medium text-xl transition duration-300">Home</a>
+            <a href="#about" class="text-white hover:text-blue-600 font-medium text-xl transition duration-300">About</a>
+            <a href="#services" class="text-white hover:text-blue-600 font-medium text-xl transition duration-300">Services</a>
+            <a href="#contact" class="text-white hover:text-blue-600 font-medium text-xl transition duration-300">Contact</a>
+          </div>
+          
+    
+          <button class="md:hidden text-gray-600 focus:outline-none" id="mobile-menu-button">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+            </svg>
+          </button>
+    
+          <div class="hidden md:flex items-center space-x-4">
+            <button class="text-white hover:text-blue-600 font-medium transition duration-300">
+              Login
+            </button>
+            <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300">
+              Sign Up
+            </button>
+          </div>
+        </div>
+    
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden" id="mobile-menu">
+          <a href="#home" class="block px-6 py-4 text-gray-600 hover:text-blue-600 font-medium">Home</a>
+          <a href="#about" class="block px-6 py-4 text-gray-600 hover:text-blue-600 font-medium">About</a>
+          <a href="#services" class="block px-6 py-4 text-gray-600 hover:text-blue-600 font-medium">Services</a>
+          <a href="#contact" class="block px-6 py-4 text-gray-600 hover:text-blue-600 font-medium">Contact</a>
+        </div>
+      </nav>
+
+  <!-- Hero Section -->
+  <header class="hero-bg h-screen flex flex-col justify-center items-center text-center text-white relative">
+    <div class="absolute inset-0 bg-black bg-opacity-50"></div> 
+    <div class="z-10 flex flex-col items-center">
+      <h1 class="text-5xl md:text-7xl font-extrabold mb-6">
+        Welcome to MyBrand
+      </h1>
+      <p class="text-lg md:text-xl mb-8 max-w-2xl">
+        Discover our services and solutions to take your business to the next level. Let's build something amazing together!
+      </p>
+      <div class="flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0">
+        <button 
+          onclick="window.location.href='auth/login'"
+          class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg text-lg shadow-md transition-transform transform hover:scale-105">
+          Login
+        </button>
+        <button 
+          onclick="window.location.href='auth/signup'"
+          class="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg text-lg shadow-md transition-transform transform hover:scale-105">
+          Signup
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <script>
+    // Mobile menu toggle functionality
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+
 </body>
 </html>

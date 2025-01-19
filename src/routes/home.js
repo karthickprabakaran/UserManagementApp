@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  res.send('you should either login or register');
+  res.render('/Users/karthickprabakaran/Projects/UserManagementApp/src/views/index.ejs');
 });
 
 

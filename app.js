@@ -6,12 +6,12 @@ app.set('view engine', 'ejs');
 
 const port = 3000;
 const bodyParser = require('body-parser');
-const loginRoutes = require('./src/routes/login');
+const auth = require('./src/routes/auth');
 const homeRoutes = require('./src/routes/home');
 
 
 
-app.use('/auth',loginRoutes);
+app.use('/auth',auth);
 
 
 app.use('/',homeRoutes);
