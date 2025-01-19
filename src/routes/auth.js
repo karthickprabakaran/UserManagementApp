@@ -13,11 +13,11 @@ const router = express.Router();
 
 
 router.get('/login', (req, res) => {
-    res.send('Login page');    
+    res.render('/Users/karthickprabakaran/Projects/UserManagementApp/src/views/login.ejs');    
 });
 
 router.get('/signup', (req, res) => {
-    res.send('signup page');    
+    res.render('/Users/karthickprabakaran/Projects/UserManagementApp/src/views/signUp.ejs');    
 });
 
 
