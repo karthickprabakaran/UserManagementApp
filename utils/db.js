@@ -1,19 +1,19 @@
-const {client} = require('pg');
+const {Pool} = require('pg');
 const { user } = require('pg/lib/defaults');
 
 
-const Client = new Client({
+const pool = new Pool({
     user: 'postgres',
     host: 'localhost',
-    database: 'userManagement',
+    database: 'postgres',
     password: 'root',
     port: 5432,
 });
 
-client.connect().then(() => {
+pool.connect().then(() => {
     console.log('Database connected');
 }).catch((err) => {
     console.log(err);
 });
 
-module.exports = client;
+module.exports = pool;

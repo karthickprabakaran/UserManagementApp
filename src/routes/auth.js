@@ -1,20 +1,18 @@
 const express = require('express');
+const { user } = require('pg/lib/defaults');
 
 const router = express.Router();
 
-//step 1: import the required modules 
+const {login} = require('../controllers/userController');
 
-// write the logic for the login route
-
-// test the login route 
-
-// write the ejs file for the login page
 
 
 
 router.get('/login', (req, res) => {
     res.render('/Users/karthickprabakaran/Projects/UserManagementApp/src/views/login.ejs');    
 });
+
+router.post('/login',login); 
 
 router.get('/signup', (req, res) => {
     res.render('/Users/karthickprabakaran/Projects/UserManagementApp/src/views/signUp.ejs');    
