@@ -6,6 +6,10 @@ router.get('/', (req, res) => {
   res.render('/Users/karthickprabakaran/Projects/UserManagementApp/src/views/index.ejs');
 });
 
+router.get('/dashboard', (req, res) => {
+  res.render('/Users/karthickprabakaran/Projects/UserManagementApp/src/views/userDashboard.ejs');
+});
+
 
 
 module.exports = router;

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .hero-bg {
+      background-image: url('https://images.pexels.com/photos/2041629/pexels-photo-2041629.jpeg?auto=compress&cs=tinysrgb&w=800');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+  <nav class="bg-gray-500 bg-opacity-20 shadow-lg fixed w-full top-0 left-0 z-50">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="#" class="text-2xl font-semibold text-blue-600 hover:text-blue-800 transition-colors duration-300">
+        Admin Dashboard
+      </a>
+
+      <div class="hidden md:flex space-x-8">
+        <a href="#home" class="text-white hover:text-blue-600 font-medium text-xl transition duration-300">Home</a>
+        <a href="#about" class="text-white hover:text-blue-600 font-medium text-xl transition duration-300">About</a>
+        <a href="#users" class="text-white hover:text-blue-600 font-medium text-xl transition duration-300">Users</a>
+        <a href="#settings" class="text-white hover:text-blue-600 font-medium text-xl transition duration-300">Settings</a>
+        <a href="#logout" class="text-white hover:text-blue-600 font-medium text-xl transition duration-300">Logout</a>
+      </div>
+
+      <button class="md:hidden text-gray-600 focus:outline-none" id="mobile-menu-button">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <div class="md:hidden hidden" id="mobile-menu">
+    <a href="#home" class="block px-6 py-4 text-gray-600 hover:text-blue-600 font-medium">Home</a>
+    <a href="#about" class="block px-6 py-4 text-gray-600 hover:text-blue-600 font-medium">About</a>
+    <a href="#users" class="block px-6 py-4 text-gray-600 hover:text-blue-600 font-medium">Users</a>
+    <a href="#settings" class="block px-6 py-4 text-gray-600 hover:text-blue-600 font-medium">Settings</a>
+    <a href="#logout" class="block px-6 py-4 text-gray-600 hover:text-blue-600 font-medium">Logout</a>
+  </div>
+
+  <header class="hero-bg h-64 flex justify-center items-center text-center text-white relative">
+    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+    <div class="z-10 w-full max-w-md bg-white p-8 rounded-lg shadow-lg">
+      <h2 class="text-3xl font-bold text-center text-blue-600">Welcome, <%= userName %>!</h2>
+      <p class="text-center text-gray-600">Role: <%= userRole %></p>
+    </div>
+  </header>
+
+  <section class="container mx-auto px-6 py-10">
+    <h2 class="text-2xl font-semibold text-gray-800 mb-4">User Management</h2>
+    <div class="overflow-x-auto bg-white p-6 rounded-lg shadow-lg">
+      <table class="min-w-full">
+        <thead>
+          <tr>
+            <th class="py-2 px-4 text-left text-gray-600">User</th>
+            <th class="py-2 px-4 text-left text-gray-600">Email</th>
+            <th class="py-2 px-4 text-left text-gray-600">Role</th>
+            <th class="py-2 px-4 text-left text-gray-600">Status</th>
+            <th class="py-2 px-4 text-left text-gray-600">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+              <td class="py-2 px-4 text-gray-800">asdasd</td>
+              <td class="py-2 px-4 text-gray-800"> user.email </td>
+              <td class="py-2 px-4 text-gray-800"> user.role</td>
+              <td class="py-2 px-4 text-gray-800"> user.status</td>
+              <td class="py-2 px-4 text-gray-800">
+                <form action="/admin/deleteUser/" method="POST" class="inline-block">
+                  <button type="submit" class="text-red-600 hover:text-red-800">Delete</button>
+                </form>
+              </td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+</body>
+</html>
