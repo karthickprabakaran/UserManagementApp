@@ -20,6 +20,10 @@ router.get('/signup', (req, res) => {
     res.render('/Users/karthickprabakaran/Projects/UserManagementApp/src/views/signUp.ejs');    
 });
 
+router.get('/forgotpassword', (req, res) => {
+    res.render('/Users/karthickprabakaran/Projects/UserManagementApp/src/views/forgotPassword.ejs');    
+});
+
 
 
 
