@@ -73,7 +73,7 @@
               <td class="py-2 px-4 text-gray-800"><%= user.email %></td>
               <td class="py-2 px-4 text-gray-800"><%= user.role %></td>
               <td class="py-2 px-4 text-gray-800">
-                <form action="/admin/deleteUser/<%= user.id %>" method="POST" class="inline-block">
+                <form action="/auth/deleteUser/<%= user.id %>" method="POST" class="inline-block">
                   <button type="submit" class="text-red-600 hover:text-red-800">Delete</button>
                 </form>
               </td>

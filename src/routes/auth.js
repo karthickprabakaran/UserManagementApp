@@ -5,8 +5,11 @@ const router = express.Router();
 
 const {login} = require('../controllers/userController');
 
+const {deleteUser} = require('../controllers/adminController');
 
 
+
+router.post('/deleteuser/:id', deleteUser);
 
 router.get('/login', (req, res) => {
     res.render('/Users/karthickprabakaran/Projects/UserManagementApp/src/views/login.ejs');    

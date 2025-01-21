@@ -20,10 +20,20 @@ const getUserByEmail = async (email) => {
     }
 };
 
+const deleteUserById = async (id) => {
+    try {
+        const result = await pool.query('DELETE FROM users WHERE id = $1', [id]);
+        return result.rowCount;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 
 
 
 module.exports = {
     getAllUsers,
-    getUserByEmail
+    getUserByEmail,
+    deleteUserById
 };
