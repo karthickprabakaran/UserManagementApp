@@ -26,7 +26,7 @@ router.get('/signup', (req, res) => {
 });
 
 
-router.get('/forgotpassword', (req, res) => {
+router.get('/forgot-password', (req, res) => {
     res.render('/Users/karthickprabakaran/Projects/UserManagementApp/src/views/forgotPassword.ejs');    
 });
 
