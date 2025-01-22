@@ -3,7 +3,7 @@ const { user } = require('pg/lib/defaults');
 
 const router = express.Router();
 
-const {login} = require('../controllers/userController');
+const {login, resetPassword} = require('../controllers/userController');
 
 const {deleteUser} = require('../controllers/adminController');
 
@@ -29,6 +29,9 @@ router.get('/signup', (req, res) => {
 router.get('/forgot-password', (req, res) => {
     res.render('/Users/karthickprabakaran/Projects/UserManagementApp/src/views/forgotPassword.ejs');    
 });
+
+router.post('/forgot-password', resetPassword);    
+
 
 
 

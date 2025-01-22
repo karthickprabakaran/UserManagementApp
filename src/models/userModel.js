@@ -29,11 +29,21 @@ const deleteUserById = async (id) => {
     }
 }
 
+const forgotPassword = async (email) => {
+    try {
+        const result = await pool.query('SELECT * FROM users WHERE email = $1',[email]);
+        return result.rows[0];
+    } catch (error) {
+        console.log(error);
+    }
+};
+
 
 
 
 module.exports = {
     getAllUsers,
     getUserByEmail,
-    deleteUserById
+    deleteUserById,
+    forgotPassword
 };

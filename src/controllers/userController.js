@@ -1,4 +1,4 @@
-const { getAllUsers, getUserByEmail } = require('../models/userModel');
+const { getAllUsers, getUserByEmail,forgotPassword } = require('../models/userModel');
 
 const login = async (req, res) => {
     const email = req.body.email;
@@ -39,8 +39,28 @@ const login = async (req, res) => {
         console.error("Error during login:", error);
         return res.status(500).send('Internal server error');
     }
+
+    
 };
 
+const resetPassword = async (req, res) => {
+    const email = req.body.email;
+
+    try {
+        const user = await forgotPassword(email);
+
+        if (!user) {
+            return res.status(400).send('User not found');
+        }
+
+        res.status(200).send('Password reset link sent to your email');
+    } catch (error) {
+        console.error("Error during password reset:", error);
+        return res.status(500).send('Internal server error');
+    }
+}
+
 module.exports = {
-    login
+    login,
+    resetPassword
 };
