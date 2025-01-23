@@ -3,18 +3,14 @@ const { user } = require('pg/lib/defaults');
 
 const router = express.Router();
 
-const {login, resetPassword} = require('../controllers/userController');
+const {login, resetPassword, signUp} = require('../controllers/userController');
 
 const {deleteUser} = require('../controllers/adminController');
 
 
 
 
-router.post('/signup',(req,res)=>{
-    console.log("signupRequest");
-    res.send("signup Request");
-    
-});
+router.post('/signup',signUp);
 
 
 router.post('/deleteuser/:id', deleteUser);

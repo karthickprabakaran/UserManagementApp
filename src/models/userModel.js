@@ -38,6 +38,17 @@ const forgotPassword = async (email) => {
     }
 };
 
+const createUser = async (name,email, password, role = 'user') => {
+    try {
+        const result = await pool.query(
+            `INSERT INTO users(name,email, password, role) VALUES($1, $2, $3, $4) RETURNING *`,
+            [name, email, password, role]
+        );
+    } catch (error) {
+        console.error("Error creating user:", error);
+        throw new Error('Failed to create user');
+    }
+};
 
 
 
@@ -45,5 +56,6 @@ module.exports = {
     getAllUsers,
     getUserByEmail,
     deleteUserById,
-    forgotPassword
+    forgotPassword,
+    createUser
 };

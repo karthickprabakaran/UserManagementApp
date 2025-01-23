@@ -1,4 +1,4 @@
-const { getAllUsers, getUserByEmail,forgotPassword } = require('../models/userModel');
+const { getAllUsers, getUserByEmail,forgotPassword,createUser } = require('../models/userModel');
 
 const login = async (req, res) => {
     const email = req.body.email;
@@ -60,7 +60,22 @@ const resetPassword = async (req, res) => {
     }
 }
 
+const signUp = async (req, res) => {
+    const name = req.body.name;
+    const email = req.body.email;
+    const password = req.body.password;
+
+    try {
+        const user = await createUser(name, email, password);
+        res.status(200).render('/Users/karthickprabakaran/Projects/UserManagementApp/src/views/login.ejs');
+        } catch (error) {
+        console.error("Error during signup:", error);
+        return res.status(500).send('Internal server error');
+    }
+}
+
 module.exports = {
+    signUp,
     login,
     resetPassword
 };
